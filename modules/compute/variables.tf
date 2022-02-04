@@ -6,15 +6,15 @@ variable "region" {
 }
 
 variable "ssh_key_public" {
-  #type    = string
+  type    = string
   #Replace this with the location of you public key .pub
-  default = file("~/.ssh/${var.key_name}.pub")
+  default = "${var.key_name}.pub"
 }
 
 variable "ssh_key_private" {
-  #type    = string
+  type    = string
   #Replace this with the location of you private key
-  default = file("~/.ssh/${var.key_name}")
+  default = "${var.key_name}"
 }
 
 variable "subnet_ips" {}
