@@ -10,6 +10,13 @@ data "aws_ssm_parameter" "webserver-ami" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 }
 
+#Create key-pair for logging into EC2 
+#======================================
+resource "aws_key_pair" "aws-key" {
+  key_name   = "webserver"
+  public_key = file(var.ssh_key_public)
+}
+
 #Create and bootstrap webserver
 #===================================
 resource "aws_instance" "webserver" {
@@ -18,7 +25,7 @@ resource "aws_instance" "webserver" {
   tags = {
     Name = "webserver_tf"
   }
-  key_name                    = service_terraform
+  key_name                    = aws_key_pair.aws-key.key_name
   associate_public_ip_address = true
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
@@ -26,7 +33,7 @@ resource "aws_instance" "webserver" {
   connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key   = "service_terraform"
+      private_key   = file(var.ssh_key_private)
       host        = self.public_ip
   }
   

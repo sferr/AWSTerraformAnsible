@@ -5,6 +5,18 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "ssh_key_public" {
+  #type    = string
+  #Replace this with the location of you public key .pub
+  default = file("~/.ssh/${var.key_name}.pub")
+}
+
+variable "ssh_key_private" {
+  #type    = string
+  #Replace this with the location of you private key
+  default = file("~/.ssh/${var.key_name}")
+}
+
 variable "subnet_ips" {}
 
 variable "security_group" {}
