@@ -5,17 +5,9 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "ssh_key_public" {
-  type    = string
-  #Replace this with the location of you public key .pub
-  default = "/home/simao/.ssh/id_rsa.pub"
-}
+variable "public_key" {}
 
-variable "ssh_key_private" {
-  type    = string
-  #Replace this with the location of you private key
-  default = "/home/simao/.ssh/id_rsa"
-}
+variable "private_key" {}
 
 variable "subnet_ips" {}
 
