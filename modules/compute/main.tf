@@ -23,12 +23,12 @@ resource "aws_instance" "webserver" {
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
   
-  connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      private_key   = "service_terraform"
-      host        = self.public_ip
-  }
+#  connection {
+#      type        = "ssh"
+#      user        = "ec2-user"
+#      private_key   = "service_terraform"
+#      host        = self.public_ip
+#  }
   
   # Copy the file from local machine to EC2
   provisioner "file" {
