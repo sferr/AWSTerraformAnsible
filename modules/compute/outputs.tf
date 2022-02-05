@@ -9,5 +9,6 @@ output "server_ip" {
 }
 
 output "private_key" {
-    value = tls_private_key.service_terraform.private_key_pem
+  value = aws_instance.EC2.*.key_name
+  sensitive = true
 }
