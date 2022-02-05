@@ -18,7 +18,7 @@ resource "aws_instance" "webserver" {
   tags = {
     Name = "webserver_tf"
   }
-  aws_key_name                = "terraform"
+  key_name                    = "service.terraform"
   associate_public_ip_address = true
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
@@ -26,7 +26,7 @@ resource "aws_instance" "webserver" {
   connection {
       type        = "ssh"
       user        = "ec2-user"
-      #private_key   = file(var.ssh_key_private)
+      private_key   = "service.terraform.pem"
       host        = self.public_ip
   }
   
