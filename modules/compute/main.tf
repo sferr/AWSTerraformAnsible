@@ -14,7 +14,7 @@ data "aws_ssm_parameter" "webserver-ami" {
 #======================================
 resource "aws_key_pair" "aws-key" {
   key_name   = "webserver"
-  public_key = file(var.ssh_key_public)
+  public_key = file("~/.ssh/${var.key_name}.pub")
 }
 
 #Create and bootstrap webserver
