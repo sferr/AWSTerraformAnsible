@@ -10,8 +10,3 @@ variable "subnet_ips" {}
 variable "security_group" {}
 
 variable "subnets" {}
-
-variable "key_name" {
-    type = string
-    default = "service_terraform"
-}
