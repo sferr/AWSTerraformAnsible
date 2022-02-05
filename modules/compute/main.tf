@@ -22,9 +22,6 @@ resource "aws_instance" "webserver" {
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
   key_name                    = "service_terraform"
-  tags = {
-  Name = "Terraform"
-  }
   
   connection {
       type        = "ssh"

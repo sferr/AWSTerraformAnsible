@@ -12,5 +12,5 @@ variable "security_group" {}
 variable "subnets" {}
 
 variable "ssh_key_private" {
-  default = "./ansible.pem"
+  default = "./service_terraform.pem"
 }
