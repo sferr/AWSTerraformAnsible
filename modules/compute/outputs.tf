@@ -9,6 +9,6 @@ output "server_ip" {
 }
 
 output "private_key" {
-  value     = aws_instance.webserver.private_key_pem
+  value     = tls_private_key.webserver.private_key_pem
   sensitive = true
 }
