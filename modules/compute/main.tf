@@ -18,7 +18,7 @@ resource "aws_instance" "webserver" {
   tags = {
     Name = "webserver_tf"
   }
-  key_name                    = aws_key_pair.aws-key.service_terraform
+  key_name                    = aws_key_pair.service_terraform
   associate_public_ip_address = true
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
