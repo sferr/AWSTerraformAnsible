@@ -26,7 +26,7 @@ resource "aws_instance" "webserver" {
   connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key   = "service_terraform.pem"
+      private_key   = "service_terraform"
       host        = self.public_ip
   }
   
