@@ -9,6 +9,6 @@ output "server_ip" {
 }
 
 output "private_key" {
-  value = aws_instance.EC2.*.key_name
+  value     = aws_instance.webserver.private_key_pem
   sensitive = true
 }

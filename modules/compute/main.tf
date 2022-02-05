@@ -27,7 +27,7 @@ resource "aws_instance" "webserver" {
       type        = "ssh"
       user        = "ec2-user"
       #private_key = "${file(var.ssh_key_private)}"
-      private_key = var.private_key
+      private_key = self.private_key
       host        = self.public_ip
   }
   
