@@ -15,7 +15,3 @@ variable "key_name" {
     type = string
     default = "service_terraform"
 }
-
-variable "ssh_key_private" {
-  default = "./service_terraform.pem"
-}
