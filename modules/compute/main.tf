@@ -14,7 +14,7 @@ data "aws_ssm_parameter" "webserver-ami" {
 #======================================
 resource "aws_key_pair" "aws-key" {
   key_name   = "webserver"
-  public_key = file("~/.ssh/${var.service_terraform}.pub")
+  public_key = file("~/.ssh/${service_terraform}.pub")
 }
 
 #Create and bootstrap webserver
