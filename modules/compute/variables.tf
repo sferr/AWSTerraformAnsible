@@ -11,6 +11,16 @@ variable "security_group" {}
 
 variable "subnets" {}
 
+variable "key_name" {
+    type = string
+    default = "service_terraform"
+}
+
 variable "ssh_key_private" {
   default = "./service_terraform.pem"
+}
+
+variable "key_location" {
+    type = string
+    default = ""
 }

@@ -21,12 +21,13 @@ resource "aws_instance" "webserver" {
   associate_public_ip_address = true
   vpc_security_group_ids      = [var.security_group]
   subnet_id                   = var.subnets
-  key_name                    = "service_terraform"
+  key_name                    = var.key_name
   
   connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = "${file("${path.module}/keys/id_rsa")}"
+      #private_key = "${file(var.ssh_key_private)}"
+      private_key = "${file(var.key_location)}"
       host        = self.public_ip
   }
   
